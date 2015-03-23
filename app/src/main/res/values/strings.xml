@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Xbank</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="pref_user">Benutzername</string>
+    <string name="pref_user_default">User</string>
+    <string name="pref_password">Passwort</string>
+    <string name="pref_password_default">123</string>
+</resources>
