@@ -34,6 +34,6 @@ public class Account
     public String toString()
     {
         //TODO
-        return "";
+        return "Id: " + id + ", Kontostand: " + amount;
     }
 }

@@ -1,5 +1,6 @@
 package XbankService;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 /**
@@ -10,18 +11,34 @@ public class Customer
     private String userName = "User";
     private String password = "123";
     private Set<Account> myAccounts;
+    private boolean isLoggedIn = false;
 
     public Customer login(String userName, String password) throws InvalidLoginException
     {
-        if( this.userName == userName && this.password == password)
+        if( this.userName.equals(userName) && this.password.equals(password) )
+        {
+            isLoggedIn = true;
+
+            Account acc1 = new Account();
+            acc1.increase(new BigDecimal(100));
+            Account acc2 = new Account();
+            acc2.increase(new BigDecimal(200));
+            myAccounts.add(acc1);
+            myAccounts.add(acc2);
+
             return this;
+        }
+
         else
             throw new InvalidLoginException();
     }
 
-    public void logout()
+    public void logout() throws NoSessionException
     {
-
+        if(!isLoggedIn)
+            throw new NoSessionException();
+        else
+            isLoggedIn = false;
     }
 
     public void addNewAccount(Account account)

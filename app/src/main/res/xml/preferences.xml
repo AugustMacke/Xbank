@@ -2,9 +2,15 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
-        android:key="pref_title"
+        android:key="pref_user"
         android:title="@string/pref_user"
         android:summary="@string/pref_user"
         android:defaultValue="@string/pref_user_default" />
+
+    <EditTextPreference
+        android:key="pref_password"
+        android:title="@string/pref_password"
+        android:summary="@string/pref_password"
+        android:defaultValue="@string/pref_password_default" />
 
 </PreferenceScreen>
