@@ -7,8 +7,15 @@ import java.math.BigDecimal;
  */
 public class Account
 {
+    static int idCounter = 0;
     int id;
-    BigDecimal amount;
+    BigDecimal amount = new BigDecimal("100");
+
+    public Account()
+    {
+        idCounter++;
+        this.id = idCounter;
+    }
 
     public int getId()
     {
@@ -20,9 +27,9 @@ public class Account
         return amount;
     }
 
-    public void increase(BigDecimal amount)
+    public void increase(BigDecimal add)
     {
-        this.amount = this.amount.add(amount);
+        this.amount = this.amount.add(add);
     }
 
     public void decrease(BigDecimal amount)
@@ -33,7 +40,6 @@ public class Account
     @Override
     public String toString()
     {
-        //TODO
         return "Id: " + id + ", Kontostand: " + amount;
     }
 }

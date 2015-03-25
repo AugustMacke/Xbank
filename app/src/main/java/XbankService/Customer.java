@@ -1,6 +1,7 @@
 package XbankService;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -10,7 +11,7 @@ public class Customer
 {
     private String userName = "User";
     private String password = "123";
-    private Set<Account> myAccounts;
+    private Set<Account> myAccounts = new HashSet<Account>();
     private boolean isLoggedIn = false;
 
     public Customer login(String userName, String password) throws InvalidLoginException
@@ -20,9 +21,9 @@ public class Customer
             isLoggedIn = true;
 
             Account acc1 = new Account();
-            acc1.increase(new BigDecimal(100));
+            acc1.increase( new BigDecimal("100") );
             Account acc2 = new Account();
-            acc2.increase(new BigDecimal(200));
+            acc2.increase( new BigDecimal("200") );
             myAccounts.add(acc1);
             myAccounts.add(acc2);
 

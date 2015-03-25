@@ -77,6 +77,8 @@ public class MainActivity extends ActionBarActivity
         new MyTask().execute( new String[]{user, pw, btnMessage} );
     }
 
+
+
     public class MyTask extends AsyncTask<String, Integer, String>
     {
         protected String doInBackground(String[] params)
@@ -133,32 +135,33 @@ public class MainActivity extends ActionBarActivity
                     btn.setText("Logout");
                     if(c != null)
                     {
-                        info.setText(R.string.info_welcome + " " + c.getUserName());
+                        info.setText(getResources().getString(R.string.info_welcome) + " " + c.getUserName());
                         Set<Account> accs_ = c.getMyAccounts();
                         //Account[] accs = (Account[]) accs_.toArray();
 
                         TextView accs_view = (TextView) findViewById(R.id.textViewAccs);
                         accs_view.setText("");
 
-                        for(Iterator<Account> i = accs_.iterator(); i.hasNext(); ) {
+                        for(Iterator<Account> i = accs_.iterator(); i.hasNext(); )
+                        {
                             Account acc = i.next();
                             accs_view.append(acc.toString() + "\n");
                         }
                     }
                     else
-                        info.setText(R.string.error_fatal);
+                        info.setText(getResources().getString(R.string.error_fatal));
                     break;
                 case "login_fail":
                     btn.setText("Login");
-                    info.setText(R.string.error_login);
+                    info.setText(getResources().getString(R.string.error_login));
                     break;
                 case "logout_ok":
                     btn.setText("Login");
-                    info.setText(R.string.info_logout);
+                    info.setText(getResources().getString(R.string.info_logout));
                     break;
                 case "logout_fail":
                     btn.setText("Login");
-                    info.setText(R.string.error_logout);
+                    info.setText(getResources().getString(R.string.error_logout));
                     break;
             }
         }
